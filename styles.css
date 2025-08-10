@@ -69,6 +69,13 @@ body {
       .team-card img {
         border-radius: 50%;
       }
+      .zoom:hover {
+        transform: scale(1.10);
+      }
+      .zoom {
+        border-radius: 10px;
+        transition: 0.3s;
+        }
       /* Footer */
       .footer {
         background-color: #0f5132;
@@ -79,3 +86,6 @@ body {
         color: #ffc107;
         text-decoration: none;
       }
+
+/* Team Pengurus */
+
