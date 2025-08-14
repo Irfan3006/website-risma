@@ -25,6 +25,10 @@ body {
     color: white;
 }
 
+h3{
+  font-size: 1.250rem !important;
+}
+
 .hero-video {
     position: absolute;
     top: 0;
