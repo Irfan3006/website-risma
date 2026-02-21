@@ -1,96 +1,253 @@
-body {
-        font-family: "Poppins", sans-serif;
+      :root {
+        --islamic-green: #046a38;
+        --islamic-light: #e8f5e9;
+        --islamic-dark: #023d20;
+        --text-dark: #2c3e50;
       }
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+      }
+      .section-title {
+        color: var(--islamic-dark);
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: var(--islamic-green);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .text-start .section-title::after {
+        left: 0;
+        transform: none;
+      }
+
       /* Navbar */
       .navbar {
-        transition: all 0.3s ease-in-out;
-        padding: 15px 0;
+        transition: all 0.4s ease;
+        padding: 1rem 0;
+        background-color: transparent;
       }
       .navbar.scrolled {
-        background-color: #0f5132 !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: var(--islamic-dark);
+        padding: 0.5rem 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-brand img {
+        transition: transform 0.3s ease;
+      }
+      .navbar-brand:hover img {
+        transform: scale(1.1);
       }
       .nav-link {
-        color: white !important;
-        font-weight: 500;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        position: relative;
       }
-      /* Hero */
-    .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    color: white;
-}
-
-h3{
-  font-size: 1.250rem !important;
-}
-
-.hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(15, 81, 50, 0.8), rgba(15, 81, 50, 0.8));
-    z-index: -1;
-}
-
-
-      /* Section Title */
-      .section-title {
-        color: #0f5132;
-        font-weight: 700;
-        margin-bottom: 15px;
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
       }
-      /* Cards */
-      .card:hover {
-        transform: translateY(-5px);
-        transition: 0.3s;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      .nav-link:hover::after {
+        width: 100%;
       }
-      /* Galeri */
-      .gallery img {
-        border-radius: 10px;
-        transition: 0.3s;
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
       }
-      .gallery img:hover {
+      .hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(2, 61, 32, 0.7), rgba(0, 0, 0, 0.6));
+        z-index: 2;
+      }
+      .hero .container {
+        z-index: 3;
+        color: white;
+        text-align: center;
+      }
+      .btn-custom {
+        background-color: var(--islamic-green);
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        color: white;
+      }
+      .btn-custom:hover {
+        background-color: var(--islamic-dark);
+        transform: translateY(-3px);
+        color: white;
+        box-shadow: 0 5px 15px rgba(4, 106, 56, 0.4);
+      }
+
+      /* Tentang Kami */
+      .about-list li {
+        margin-bottom: 10px;
+        list-style: none;
+      }
+      .about-list i {
+        color: var(--islamic-green);
+        margin-right: 10px;
+        font-size: 1.2rem;
+      }
+      .about-img-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .about-img-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 4px solid var(--islamic-green);
+        border-radius: 20px;
+        transform: translate(15px, 15px);
+        z-index: -1;
+      }
+
+      /* Kegiatan Cards */
+      .kegiatan-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .kegiatan-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+      }
+      .kegiatan-card img {
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .kegiatan-card:hover img {
         transform: scale(1.05);
       }
+      .kegiatan-card .card-body {
+        padding: 2rem 1.5rem;
+      }
+
+      /* Galeri */
+      .gallery-item {
+        overflow: hidden;
+        border-radius: 15px;
+        position: relative;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
       /* Tim */
+      .team-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .team-card:hover {
+        transform: translateY(-5px);
+      }
       .team-card img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
         border-radius: 50%;
+        border: 4px solid var(--islamic-light);
+        padding: 5px;
       }
-      .zoom:hover {
-        transform: scale(1.10);
+      .team-card h3 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        color: var(--islamic-dark);
       }
-      .zoom {
+      .team-card p {
+        color: var(--islamic-green);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      /* Kontak & Footer */
+      .form-control {
         border-radius: 10px;
-        transition: 0.3s;
-        }
-      /* Footer */
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+      }
+      .form-control:focus {
+        border-color: var(--islamic-green);
+        box-shadow: 0 0 0 0.25rem rgba(4, 106, 56, 0.25);
+      }
       .footer {
-        background-color: #0f5132;
-        color: white;
-        padding: 40px 0;
+        background-color: var(--islamic-dark);
+        color: #fff;
+        padding: 3rem 0 1rem;
       }
-      .footer a {
-        color: #ffc107;
-        text-decoration: none;
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease;
       }
-
-/* Team Pengurus */
-
+      .social-links a:hover {
+        background-color: var(--islamic-green);
+        transform: translateY(-3px);
+      }
